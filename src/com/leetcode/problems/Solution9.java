@@ -12,7 +12,7 @@ public class Solution9 {
     }
 
     private static boolean isPalindrome(int x) {
-        if(x<0)return false;//负数不是回文字
+        if(x<0) return false;//负数不是回文字
         int reserve = 0;
         int origin = x;
         while(x>0){
