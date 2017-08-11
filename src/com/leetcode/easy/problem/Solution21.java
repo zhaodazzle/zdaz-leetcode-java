@@ -4,12 +4,6 @@ package com.leetcode.easy.problem;
  * Created by zhao on 2017/8/10.<br/>
  * Merge two sorted linked lists and return it as a new list. <br/>
  * The new list should be made by splicing together the nodes of the first two lists.<br/>
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode(int x) { val = x; }
- * }
  */
 public class Solution21 {
 
@@ -88,11 +82,3 @@ public class Solution21 {
 
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-    }
-}
