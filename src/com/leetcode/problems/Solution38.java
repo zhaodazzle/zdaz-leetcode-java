@@ -24,7 +24,6 @@ public class Solution38 {
     }
 
     private static String countAndSay(int n) {
-        if (n < 1) return "";
         String result = "1";
         if (n == 1) return result;
         int num = 2;
