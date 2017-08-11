@@ -14,7 +14,7 @@ package com.leetcode.easy.problem;
 public class Solution21 {
 
     public static void main(String[] args) {
-        ListNode first1 = new ListNode(0);
+        /*ListNode first1 = new ListNode(0);
         ListNode rear1 =first1;
 
         for(int i=9;i>=1;i--){
@@ -36,7 +36,16 @@ public class Solution21 {
             System.out.print(p.val+ ",");
             p=p.next;
         }
-        System.out.println();
+        System.out.println();*/
+
+        ListNode a = new ListNode(new int[]{1, 2, 5});
+        ListNode b = new ListNode(new int[]{3, 4, 6});
+        ListNode p = new Solution21().mergeTwoLists(a, b);
+        while (p != null) {
+            System.out.print(p.val + ",");
+            p = p.next;
+        }
+
     }
 
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -63,26 +72,26 @@ public class Solution21 {
         return head.next;
     }
 
-    private ListNode sortList(ListNode head){
+    private ListNode sortList(ListNode head) {
         /*
          * 实现链表的合并排序：1、将链表划分成基本相等的两个链表
          * 2、递归将这两个链接继续划分，直到链表的长度为0或者1为止
          * 3、调用Merge（）将链接进行合并
          */
 
-        if(head==null||head.next==null)
+        if (head == null || head.next == null)
             return head;
-        ListNode mid =head;
-        ListNode pos =mid.next;
-        while(pos!=null){
-            pos=pos.next;
-            if(pos!=null){
-                pos=pos.next;
-                mid=mid.next;
+        ListNode mid = head;
+        ListNode pos = mid.next;
+        while (pos != null) {
+            pos = pos.next;
+            if (pos != null) {
+                pos = pos.next;
+                mid = mid.next;
             }
         }
-        ListNode q=sortList(mid.next);
-        mid.next=null;
+        ListNode q = sortList(mid.next);
+        mid.next = null;
         return mergeTwoLists(sortList(head), q);
     }
 
@@ -94,5 +103,14 @@ class ListNode {
 
     ListNode(int x) {
         val = x;
+    }
+
+    ListNode(int[] xs) {
+        ListNode now = this;
+        for (int i = 0; i < xs.length; i++) {
+            now.val = xs[i];
+            now.next = (i == (xs.length - 1)) ? null : new ListNode(xs[i + 1]);
+            now = now.next;
+        }
     }
 }

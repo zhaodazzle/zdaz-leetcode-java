@@ -29,11 +29,14 @@ public class Solution2 {
         ListNode b3 = b2.next = new ListNode(4);
         ListNode b4 = b3.next = new ListNode(1);*/
 
-        ListNode a1 = new ListNode(5);
+        /*ListNode a1 = new ListNode(5);
         ListNode ah = a1;
 
         ListNode b1 = new ListNode(5);
-        ListNode bh = b1;
+        ListNode bh = b1;*/
+
+        ListNode ah = new ListNode(new int[]{2, 4, 3});
+        ListNode bh = new ListNode(new int[]{5, 6, 4});
 
         ListNode p = new Solution2().addTwoNumbers(ah, bh);
         while (p != null) {
@@ -59,8 +62,8 @@ public class Solution2 {
             a = (m + n + a) / 10;
             newList.next = new ListNode(0);
 
-            l1 = (l1 != null) ? l1.next : l1;
-            l2 = (l2 != null) ? l2.next : l2;
+            l1 = (l1 != null) ? l1.next : null;
+            l2 = (l2 != null) ? l2.next : null;
             if (l1 == null && l2 == null) {
                 newList.next = (a == 0) ? null : new ListNode(a);//如果 5 和 5 相加 进位，需要把进位作为最后一个节点
                 break;
@@ -79,5 +82,14 @@ class ListNode {
 
     ListNode(int x) {
         val = x;
+    }
+
+    ListNode(int[] xs) {
+        ListNode now = this;
+        for (int i = 0; i < xs.length; i++) {
+            now.val = xs[i];
+            now.next = (i == (xs.length - 1)) ? null : new ListNode(xs[i + 1]);
+            now = now.next;
+        }
     }
 }
