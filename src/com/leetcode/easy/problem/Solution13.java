@@ -1,4 +1,4 @@
-package com.leetcode.problems;
+package com.leetcode.easy.problem;
 
 /**
  * Created by zhaoz on 2017/8/9.<br/>
